@@ -1,6 +1,7 @@
 ﻿//Author: Anton Rozum
 using System;
 using System.Data;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using Models;
 using UnityEngine;
@@ -55,8 +56,11 @@ namespace Logic
             }
 
             _calculatorViewModel.ExpressionValid = success;
-            if (success)
-                _calculatorViewModel.LatestResult = value;
+            if (success==false)
+                return;
+            _calculatorViewModel.Expression = value.ToString(CultureInfo.InvariantCulture);
+            _calculatorViewModel.LatestResult = value;
+
         }
 
         private void CheckValidation()

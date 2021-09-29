@@ -38,7 +38,8 @@ namespace View
         private void OnResultChanged()
         {
             var value = _calculatorViewModel.LatestResult;
-            _inputField.text = value.ToString(CultureInfo.InvariantCulture);
+            var result = value.ToString(CultureInfo.InvariantCulture);
+            _inputField.text = result;
         }
 
         private void OnModelChanged()
